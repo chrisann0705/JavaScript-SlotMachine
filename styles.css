@@ -5,73 +5,86 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     margin-bottom: 20px;
 }
 
-#balance {
-    font-size: 20px;
-    margin-bottom: 20px;
+.slot-machine {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.reel-container {
+    width: 100px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-right: 1px solid #333;
+}
+
+.reel-container:last-child {
+    border-right: none;
+}
+
+.reel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.reel div {
+    font-size: 2rem;
+    line-height: 100px;
+    text-align: center;
 }
 
 .controls {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-#reels {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+label, input, button {
+    display: block;
+    margin: 10px auto;
 }
 
-.reels {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.reels div {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 5px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-#message {
-    font-size: 18px;
-    margin-bottom: 20px;
+input {
+    padding: 5px;
+    font-size: 1rem;
 }
 
 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
     padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+#message {
+    font-weight: bold;
 }
 
-button:disabled {
-    background-color: #cccccc;
+#balance {
+    font-size: 1.2rem;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-300%); }
+}
+
+.reel.spinning {
+    animation: spin 2s ease-out;
 }
